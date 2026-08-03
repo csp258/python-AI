@@ -1,0 +1,30 @@
+# AI时代技术人才招聘市场洞察系统 - 依赖清单
+# 安装方式: pip install -r requirements.txt
+
+# ---- 数据处理核心 ----
+pandas>=2.0.0          # 数据分析主力库 —— DataFrame 操作
+numpy>=1.24.0          # 数值计算基础库 —— 数组/矩阵运算
+scipy>=1.10.0          # 科学计算 —— KDE 密度曲线、统计函数
+
+# ---- 数据爬取 ----
+playwright>=1.40.0       # 真实浏览器自动化 —— 突破 JS 反爬
+requests>=2.28.0         # HTTP 请求库（备用）
+beautifulsoup4>=4.11.0   # HTML 解析库（备用）
+
+# ---- 数据存储 ----
+# (SQLite3 是 Python 标准库，无需额外安装)
+
+# ---- 可视化 ----
+matplotlib>=3.7.0      # 绑图核心库 —— 22+种图表的底层引擎
+wordcloud>=1.9.0       # 词云生成库 —— 技能/福利词云
+plotly>=5.18.0         # 交互式图表 —— Streamlit Web 应用专用
+kaleido>=0.2.1         # Plotly 静态图片导出（报告生成需要）
+
+# ---- GUI 界面 ----
+# (tkinter 是 Python 标准库，无需额外安装)
+
+# ---- Web 应用 ----
+streamlit>=1.28.0      # Web 应用框架 —— 可分享、可部署到云端
+
+# ---- 数据导出 ----
+openpyxl>=3.1.0        # Excel 读写支持（导出功能需要）

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [],
+    "deny": []
+  },
+  "hooks": {
+    "Stop": {
+      "hooks": [
+        {
+          "command": "python .claude/hooks/delivery-verify.py"
+        }
+      ]
+    }
+  }
+}

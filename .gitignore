@@ -1,0 +1,14 @@
+# 爬虫下载的图片
+baidu_images/
+soup_images/
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# Playwright 浏览器数据
+.playwright-mcp/
+
+# 会话数据
+sessions/
