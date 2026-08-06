@@ -2,8 +2,8 @@
 """PreToolUse Hook: 拦截 git commit，验证测试和质量检查通行证"""
 
 import json
+import re
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -74,6 +74,17 @@ def check_quality_cert(base: Path, head: str) -> list[str]:
     return errors
 
 
+def has_git_commit(command: str) -> bool:
+    """检测命令中是否包含 git commit，包括复合命令（&& ; || 换行）"""
+    segments = re.split(r'&&|;|\|\||\n', command)
+    for seg in segments:
+        seg = seg.strip()
+        # 匹配 "git commit" 开头，排除 git commit-tree/graph 等子命令
+        if re.search(r'^git\s+commit\b', seg) and not re.search(r'^git\s+commit-(?:tree|graph)', seg):
+            return True
+    return False
+
+
 def main():
     try:
         data = json.load(sys.stdin)
@@ -87,8 +98,8 @@ def main():
     tool_input = data.get("tool_input", {})
     command = tool_input.get("command", "").strip()
 
-    # Only intercept git commit (not git commit-tree, git commit-graph, etc.)
-    if not (command.startswith("git commit") or command.startswith("git commit ")):
+    # Intercept git commit in plain or compound commands (but not commit-tree/graph)
+    if not has_git_commit(command):
         sys.exit(0)
 
     base = Path.cwd()
