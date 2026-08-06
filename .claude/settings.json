@@ -10,6 +10,13 @@
           "command": "python .claude/hooks/delivery-verify.py"
         }
       ]
+    },
+    "PreToolUse": {
+      "hooks": [
+        {
+          "command": "python .claude/hooks/commit-guard.py"
+        }
+      ]
     }
   }
 }

@@ -12,3 +12,6 @@ __pycache__/
 
 # 会话数据
 sessions/
+
+# Claude Code 质量检查通行证（运行时生成）
+.claude/artifacts/
