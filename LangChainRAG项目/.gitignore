@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+node_modules/
+dist/
+.vite/
+data/uploads/*
+data/chroma_db/*
+data/app.db
+!data/uploads/.gitkeep
+!data/chroma_db/.gitkeep
+venv/
+.venv/
+*.log
